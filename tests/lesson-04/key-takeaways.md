@@ -58,8 +58,8 @@ var a = 5;
 
 ==> sẽ báo lỗi
 
-# Điều kiện nâng cao
-## if....else
+## Điều kiện nâng cao
+### if....else
 
 if (điều kiện) {
 
@@ -69,7 +69,7 @@ if (điều kiện) {
 
     Khối lệnh nếu điều kiện sai
 
-## if....else if ... if
+### if....else if ... if
 
 if (điều kiện 1) {
 
@@ -87,7 +87,7 @@ if (điều kiện 1) {
 
     Khối lệnh nếu điều kiện sai
 
-## switch....case
+### switch....case
 
 Thay thế cho if else if khi bạn cần so sánh giá trị chính xác, giúp code ngắn gọn dễ đọc và hiệu quả hơn khi có nhiều điều kiện kiểm tra bằng nhau
 
@@ -103,19 +103,19 @@ switch (biểu_thức){
         khối lệnh default: ==> nếu các case trên ko thỏa thì sẽ mặc định chạy vào default
 }
 
-# Phân biệt ==, != và ===, !==
-## == và !=
+## Phân biệt ==, != và ===, !==
+### == và !=
 So sánh kiểu "lỏng lẻo", chỉ so sánh về giá trị
 
 const result = "5" == 5; ==> true
 
-## === và !===
+### === và !===
 So sánh tuyệt đối, so sánh về giá trị và cả kiểu dữ liệu (data type)
 
 const result = "5" == 5; ==> false
 
-# Vòng lặp nâng cao
-## for.....in
+## Vòng lặp nâng cao
+### for.....in
 Dùng tốt cho object (không khuyến khích dùng cho mảng), dùng để duyệt qua tất cả các thuộc tính của objects
 
 let product = {
@@ -135,7 +135,7 @@ for (let property in product){
     console.log(`${property}: ${product[property]}`); ==> Kết quả sẽ in ra thuộc tính: giá trị
 }
 
-## forEach
+### forEach
 Là một phương thức(method) được dùng để duyệt qua từng phần tử trong một mảng
 
 const fruits = ["apple", "banana", "cherry"];
@@ -146,7 +146,7 @@ fruits.forEach ((fruit, index) => {
 
 })
 
-## for...of
+### for...of
 Là một câu lệnh lặp được dùng để lặp qua các giá trị của đối tượng có thể lặp được như Array, String. Map, Set
 
 *** Lưu ý for...of không dùng được với object thông thường
@@ -169,7 +169,7 @@ for (const char of "Hien"){
 
 }
 
-## Continute
+### Continute
 - Bỏ qua vòng lặp, chạy vòng lặp tiếp theo
 - Nếu gặp continute thì bỏ qua đoạn code chạy phía dưới, và chạy tiếp vòng lặp tiếp theo
 
@@ -181,7 +181,7 @@ for (let i = 1; i <= 5; i++>){
     console.log(i); ==> kết quả sẽ in ra 1 3 5
 }
 
-## Break
+### Break
 Gặp break sẽ thoát khỏi vòng lặp và không chạy vòng lặp tiếp theo
 
 for (let i = 1; i <= 5; i++>){
@@ -191,3 +191,34 @@ for (let i = 1; i <= 5; i++>){
     }
     console.log(i); ==> kết quả sẽ in ra 1
 }
+
+## Util function - Hàm tiện ích
+Những hàm nhỏ, thường được viết để thực hiện một tác vụ cụ thể, đơn giản và có thể tái sử dụng nhiều lần trong các phần khác nhau của ứng dụng
+- String util
+- Array util
+### String util
+1. **trim()** : dùng để loại bỏ khoảng trắng ở đầu và cuối chuỗi - Câu lệnh: str.trim()
+    - trimStart() hoặc trimLeft() - dùng để xóa khoảng trắng ở đầu
+    - trimEnd() hoặc trimRight() - dùng để xóa khoảng trắng ở cuối
+2. **toLowerCase()** : dùng để trả về 1 chuỗi mới chuyển các ký tự trong chuỗi thành chữ thường, không làm thay đổi chuỗi gốc
+- Ứng dụng thực tế và lưu ý:
+    - So sánh chuỗi không phân biệt chữ hoa/thường
+    - Chuẩn hóa dữ liệu trước khi lưu hoặc tìm kiếm
+    - Không ảnh hưởng đến các ký tự không phải chữ cái
+3. **toUpperCase()** : dùng để trả về 1 chuỗi mới chuyển các ký tự trong chuỗi thành chữ hoa, không làm thay đổi chuỗi gốc
+4. **includes()** : dùng để kiểm tra chuỗi có chứa 1 chuỗi con cụ thể hay không, trả về giá trị true/false
+- Câu lệnh thường str.includes(<tên_biến>.includes("chuỗi muốn tìm"))
+- Câu lệnh tìm từ vị trí str.includes(<tên_biến>.includes("chuỗi muốn tìm", 5)) //5 là vị trí muốn tìm
+- Ứng dụng thực tế:
+    - Kiểm tra từ khóa trong chuỗi
+    - Lọc danh sách theo chuỗi nhập vào
+5. **replace()** : dùng để thay thế một phần của chuỗi bằng một chuỗi khác, sinh ra chuỗi mới và không thay đổi chuỗi gốc
+- Câu lệnh:
+
+        const t = "apple, banana, apple";
+
+        console.log(t.replace("apple", "orange")); ==> kết quả trả ra organe, banana, apple
+
+- Ứng dụng thực tế:
+    - Làm sạch dữ liệu người dùng nhập
+    - Cảm biến từ ngữ nhạy cảm
